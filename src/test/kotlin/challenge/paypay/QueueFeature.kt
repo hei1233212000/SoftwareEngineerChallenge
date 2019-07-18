@@ -60,6 +60,14 @@ object QueueFeature: Spek({
             Then("the new queue should be empty now") {
                 newQueue.isEmpty `should be equal to` true
             }
+
+            When("removing the head item from the emtpy queue") {
+                newQueue = newQueue.deQueue()
+            }
+
+            Then("Nothing should be happened") {
+                newQueue.isEmpty `should be equal to` true
+            }
         }
 
         Scenario("get item from head in an empty queue") {
@@ -100,7 +108,7 @@ object QueueFeature: Spek({
                 queue = queue.deQueue()
             }
 
-            When("try to get the head item from the queue again") {
+            And("try to get the head item from the queue again") {
                 headItem = queue.head()
             }
 

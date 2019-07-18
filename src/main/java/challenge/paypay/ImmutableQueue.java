@@ -36,6 +36,7 @@ public final class ImmutableQueue<T> implements Queue<T> {
      */
     @Override
     public Queue<T> deQueue() {
+        if (isEmpty()) return this;
         T[] newElements = Arrays.copyOfRange(elements, 1, elements.length);
         return new ImmutableQueue<>(newElements);
     }
